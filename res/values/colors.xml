@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white_bg">#ffffffff</color>
+    <color name="gray_topbar_bg">#ff515151</color>
+</resources>
