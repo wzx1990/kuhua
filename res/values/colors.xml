@@ -2,4 +2,22 @@
 <resources>
     <color name="white_bg">#ffffffff</color>
     <color name="gray_topbar_bg">#ff515151</color>
+    <color name="text_color_f0f0f0">#fff0f0f0</color>
+    <color name="text_color_222222">#ff222222</color>
+    <color name="green_n">#ff5eb130</color>
+    <color name="BLACK">#ff000000</color>
+    <color name="text_color_828282">#ff828282</color>
+    
+    <color name="shop_listview_bg_pressed">#ffececec</color>
+    <color name="shop_listview_bg_unpressed">#ffffff</color>
+    
+    <color name="hei_2">#363636</color>
+    <color name="hei_3">#707070</color>
+    <!-- setting_item -->
+    <color name="WHITE">#ffffffff</color>
+    <color name="more_item_press">#ffececec</color>
+    
+    <color name="text_color_dcdcdc">#ffdcdcdc</color>
+    <color name="yellow_fcbe22">#fffcbe22</color>
+    
 </resources>

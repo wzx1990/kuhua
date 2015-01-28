@@ -1,13 +1,13 @@
 package com.example.kuhua;
 
-import com.example.kuhua.fragment.ByHistory;
-import com.example.kuhua.fragment.KuHuaShop;
-import com.example.kuhua.fragment.MainPaperFragment;
-import com.example.kuhua.fragment.MakeMoneyList;
-import com.example.kuhua.fragment.Setting;
-import com.example.scrollview.MyHorizontalScrollView;
+import com.example.kuhua.fragment.ByHistoryFragment;
+import com.example.kuhua.fragment.KuHuaShopFragment;
+import com.example.kuhua.fragment.MainFragment;
+import com.example.kuhua.fragment.MakeMoneyFragment;
+import com.example.kuhua.fragment.SettingFragment;
 
 import android.R.anim;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -24,18 +24,26 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.ScrollView;
 
 public class MainActivity extends FragmentActivity {
 
 	private LayoutInflater mInflater;
 	private RadioGroup scv_RadioGroup;
-	private String[] tabTitle = { "首页", "赚钱套餐", "商城", "历史", "设置" };
-	private int viewidth;// 显示器高度
+	// private String[] tabTitle = { "首页", "赚钱套餐", "商城", "历史", "设置" };
+	private String[] tabTitle = { "首页", "商城", "历史", "设置" };
+	private int viewidth;// 显示器宽度
 	private ImageView view_index;// 选项卡下标
 	private ViewPager mViewPager;// 滑动下标
 	private MyFragmentPagerAdapter mAdapter;// viewpager的适配器
 	private int currentIndicatorLeft = 0;// view_index动画的左侧位置坐标
-	private MyHorizontalScrollView myscv_case;
+	private ScrollView myscv_case;
+	// private int[] tabDrawable = { R.drawable.radio_item_home,
+	// R.drawable.radio_item_makemoney, R.drawable.radio_item_market,
+	// R.drawable.radio_item_buyhistory, R.drawable.radio_item_setting };
+	private int[] tabDrawable = { R.drawable.radio_item_home,
+			R.drawable.radio_item_market, R.drawable.radio_item_buyhistory,
+			R.drawable.radio_item_setting };
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -51,16 +59,16 @@ public class MainActivity extends FragmentActivity {
 		this.scv_RadioGroup = (RadioGroup) findViewById(R.id.scview_radiogroup);
 		this.view_index = (ImageView) findViewById(R.id.scview_item_line);
 		this.mViewPager = (ViewPager) findViewById(R.id.viewpaper);
-		this.myscv_case = (MyHorizontalScrollView) findViewById(R.id.scrollview);
+		this.myscv_case = (ScrollView) findViewById(R.id.scrollview);
 	}
 
 	private void inintData() {
-		// 初始化单个横向滑动模块
+		// 初始化单个横向滑动模块的宽度为屏幕横宽除以tab数目
 		mInflater = (LayoutInflater) this
 				.getSystemService(LAYOUT_INFLATER_SERVICE);
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
-		this.viewidth = dm.widthPixels / 4;
+		this.viewidth = dm.widthPixels / (this.tabTitle.length);
 		// 初始化滑块下标
 		LayoutParams view_index_params = this.view_index.getLayoutParams();
 		view_index_params.width = this.viewidth;
@@ -75,64 +83,83 @@ public class MainActivity extends FragmentActivity {
 	private void initScrolView() {
 		this.scv_RadioGroup.removeAllViews();
 		for (int i = 0; i < this.tabTitle.length; i++) {
-			RadioButton Rg = (RadioButton) this.mInflater.inflate(
+			RadioButton Rb = (RadioButton) this.mInflater.inflate(
 					R.layout.radiogroup_item, null);
-			Rg.setId(i);
-			Rg.setText(this.tabTitle[i]);
-			Rg.setLayoutParams(new LayoutParams(this.viewidth,
+			Rb.setId(i);
+			Rb.setPadding(8, 8, 8, 8);
+			Rb.setTextSize(14);
+			Rb.setText(this.tabTitle[i]);
+			Rb.setCompoundDrawablesWithIntrinsicBounds(0, this.tabDrawable[i],
+					0, 0);
+			Rb.setLayoutParams(new LayoutParams(this.viewidth,
 					LayoutParams.MATCH_PARENT));
-			this.scv_RadioGroup.addView(Rg);
+			if (i != 0) {
+				Rb.setChecked(false);
+			}
+			this.scv_RadioGroup.addView(Rb);
 		}
 	}
 
-	private void setScrollViewPageListener()
-	{
+	private void setScrollViewPageListener() {
 		this.mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
-			
+
 			@Override
 			public void onPageSelected(int position) {
 				// TODO Auto-generated method stub
-				if(MainActivity.this.scv_RadioGroup != null && scv_RadioGroup.getChildCount() > position)
-				{
+				if (MainActivity.this.scv_RadioGroup != null
+						&& scv_RadioGroup.getChildCount() > position) {
 					scv_RadioGroup.getChildAt(position).performClick();
 				}
 			}
-			
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
-		this.scv_RadioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				// TODO Auto-generated method stub
-				if(MainActivity.this.scv_RadioGroup.getChildAt(checkedId) != null)
-				{
-					TranslateAnimation animation = new TranslateAnimation(MainActivity.this.currentIndicatorLeft, MainActivity.this.scv_RadioGroup.getChildAt(checkedId).getLeft(),0f,0f);
-					animation.setInterpolator(new LinearInterpolator());
-					animation.setDuration(80);
-					animation.setFillAfter(true);
-					
-					//执行动画
-					MainActivity.this.view_index.startAnimation(animation);
-					//viewpager同时切换
-					MainActivity.this.mViewPager.setCurrentItem(checkedId);
-					//调整左侧view_index的动画坐标
-					MainActivity.this.currentIndicatorLeft = MainActivity.this.scv_RadioGroup.getChildAt(checkedId).getLeft();
-					//调整滑动之后视图的切换
-					MainActivity.this.myscv_case.smoothScrollTo((checkedId > 1 ? MainActivity.this.scv_RadioGroup.getChildAt(checkedId).getLeft() : 0) - MainActivity.this.scv_RadioGroup.getChildAt(2).getLeft(),0);
-				}
-			}
-		});
+		this.scv_RadioGroup
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+					@Override
+					public void onCheckedChanged(RadioGroup group, int checkedId) {
+						// TODO Auto-generated method stub
+						if (MainActivity.this.scv_RadioGroup
+								.getChildAt(checkedId) != null) {
+							TranslateAnimation animation = new TranslateAnimation(
+									MainActivity.this.currentIndicatorLeft,
+									MainActivity.this.scv_RadioGroup
+											.getChildAt(checkedId).getLeft(),
+									0f, 0f);
+							animation.setInterpolator(new LinearInterpolator());
+							animation.setDuration(80);
+							animation.setFillAfter(true);
+							// 执行动画
+							MainActivity.this.view_index
+									.startAnimation(animation);
+							// viewpager同时切换
+							MainActivity.this.mViewPager
+									.setCurrentItem(checkedId);
+							// 调整左侧view_index的动画坐标
+							MainActivity.this.currentIndicatorLeft = MainActivity.this.scv_RadioGroup
+									.getChildAt(checkedId).getLeft();
+							// 调整滑动之后视图的切换
+							MainActivity.this.myscv_case
+									.smoothScrollTo(
+											(checkedId > 1 ? MainActivity.this.scv_RadioGroup
+													.getChildAt(checkedId)
+													.getLeft() : 0)
+													- MainActivity.this.scv_RadioGroup
+															.getChildAt(2)
+															.getLeft(), 0);
+						}
+					}
+				});
 	}
 
 	class MyFragmentPagerAdapter extends FragmentPagerAdapter {
@@ -148,19 +175,19 @@ public class MainActivity extends FragmentActivity {
 			Fragment ft = null;
 			switch (arg0) {
 			case 0:
-				ft = new MainPaperFragment();
+				ft = new MainFragment();
 				break;
+			// case 1:
+			// ft = new MakeMoneyList();
+			// break;
 			case 1:
-				ft = new MakeMoneyList();
+				ft = new KuHuaShopFragment();
 				break;
 			case 2:
-				ft = new KuHuaShop();
+				ft = new ByHistoryFragment();
 				break;
 			case 3:
-				ft = new ByHistory();
-				break;
-			case 4:
-				ft = new Setting();
+				ft = new SettingFragment();
 				break;
 			default:
 				break;

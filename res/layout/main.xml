@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="45.0dip"
+        android:layout_height="45.0dp"
         android:background="@color/gray_topbar_bg" >
 
         <ImageView
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="15.0dip"
+            android:layout_marginLeft="15.0dp"
             android:background="@android:color/transparent"
             android:contentDescription="@null"
             android:scaleType="center"
@@ -27,15 +27,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8.0dip"
+            android:layout_marginLeft="8.0dp"
             android:layout_toRightOf="@id/img_icon"
             android:src="@drawable/icon_coohua_txt_white" />
     </RelativeLayout>
 
-    <com.example.scrollview.MyHorizontalScrollView
+    <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="fill_parent"
-        android:layout_height="58dp"
+        android:layout_height="68dp"
         android:fadingEdge="none"
         android:scrollbars="none" >
 
@@ -48,7 +48,7 @@
             <RadioGroup
                 android:id="@+id/scview_radiogroup"
                 android:layout_width="fill_parent"
-                android:layout_height="58dp"
+                android:layout_height="68dp"
                 android:layout_alignParentTop="true"
                 android:background="#F2F2F2"
                 android:orientation="horizontal" >
@@ -60,12 +60,12 @@
                 android:layout_height="5dp"
                 android:layout_alignParentBottom="true"
                 android:background="#5AB0EB"
-                android:scaleType="matrix"></ImageView>
+                android:scaleType="matrix" >
+            </ImageView>
         </RelativeLayout>
-        
-    </com.example.scrollview.MyHorizontalScrollView>>
+    </ScrollView>
 
-    <android.support.v4.view.ViewPager
+    <com.example.customview.TabHomeMyViewPager
         android:id="@+id/viewpaper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

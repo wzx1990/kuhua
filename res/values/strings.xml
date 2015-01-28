@@ -1,8 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">kuhua</string>
+    <string name="app_name">我的酷划</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="share_tv_description">"邀请朋友使用酷划&lt;br>各赚&lt;font color='#5EB130'>%1$d元&lt;/font>"</string>
+	<string name="about_coohua_1">"        酷划是北京酷划在线网络技术有限公司推出的手机锁屏返现应用，是全球最大锁屏返现应用cashslide的中文版。通过酷划你可以拥有精美的手机锁屏，右划解锁或左划浏览广告均可获取现金奖励。"</string>
+	<string name="about_coohua_2">"        酷划全球版本自2012年上线以来，已累计让用户获得超过3亿元的奖励，这个数字还在迅速增长中。酷划致力于为用户创造最大的价值，在中国，我们将会为您带来更丰厚的收益。"</string>
+	<string name="coohua_faq_title_1">Q : 酷划锁屏是什么？</string>
+	<string name="coohua_faq_1">A : 酷划锁屏是一款解锁屏幕就能赚钱的App，是中国最受欢迎、用户量最大的返现锁屏。 您安装后只需划动锁屏界面，就能探索手机锁屏上呈现的精彩内容。向右划动， 解锁进入桌面；向左划动，浏览广告或者下载推荐软件。右划解锁，左划浏览或下载均能获得现金奖励。</string>
+	<string name="coohua_faq_title_2">Q : 酷划锁屏真的能赚钱吗？能赚多少钱？</string>
+	<string name="coohua_faq_2">A : 酷划锁屏自上线以来，已累计让用户获得上亿元的奖励，而且这个数字还在迅速增长中。您左划点击广告或下载应用即可获得高额奖励，右划解锁也可获得奖励。酷划锁屏还引入好友推荐制度，每推荐一位好友使用酷划锁屏，您和Ta还将各获得2元推荐奖励。</string>
+	<string name="coohua_faq_title_3">Q : 我每次解锁屏幕都能赚钱吗？</string>
+	<string name="coohua_faq_3">A : 您使用酷划锁屏观看广告每天每小时均有机会赚钱。在一小时内只要您观看了一张锁屏广告，就会得到一次奖励。您进入WiFi环境就会看到下载类广告，下载即可获得更多奖励~</string>
+	<string name="coohua_faq_title_4">Q : 酷划商城的商品有库存限制吗？</string>
+	<string name="coohua_faq_4">A : 酷划商城的商品都是无限供应的，您可以随时进行购买。</string>
+	<string name="coohua_faq_title_5">Q : 赚的钱可以提现吗？提现收取手续费吗？</string>
+	<string name="coohua_faq_5">A : 当然是可以提现的，您可以在酷划商城中申请提现，我们会通过银行转账等方式向您支付。提现不仅完全免费，而且酷划还会给您返利哦~</string>
+	<string name="coohua_faq_title_6">Q : 酷划锁屏会消耗多少手机流量？</string>
+    <string name="coohua_faq_6">A : 酷划呈现的美图及应用下载，主要在WiFi环境下完成，将您的流量消耗节省到最小。另外您还可以在酷划商城兑换海量流量包哦。</string>
+    <string name="coohua_faq_title_7">Q : 有奖励显示的情况下，我解锁没有获得收入？</string>
+    <string name="coohua_faq_7">A : 为了保证您的收入能够被正确记录到服务器，您需要在联网情况下获取收入。只要您在某时段内任意一次解锁时网络连接正常，您就可以获得该时段的收入。</string>
+    <string name="coohua_faq_title_8">Q : 酷划锁屏有恶意扣费插件吗？</string>
+    <string name="coohua_faq_8">A : 酷划锁屏绝对不含任何恶意扣费插件，不会造成您的潜在损失，是一款干净纯粹的为用户赚钱的App。</string>
+    <string name="coohua_faq_title_9">Q : 我可以在一台手机上同时注册多个账号吗？</string>
+    <string name="coohua_faq_9">A : 为了保障您的资金安全，酷划只允许一个手机号码同时注册一个帐户。 若您更换了手机，您可以在新手机上登陆您的酷划锁屏帐户，您已赚取的金额不会有任何损失。</string>
+    <string name="coohua_faq_title_10">Q : 我忘记密码怎么办？</string>
+    <string name="coohua_faq_10">A : 您只需要登录酷划，点击登录页面的“忘记密码” 按钮，填写您注册的手机号码，系统会给该号码发送验证码。输入验证码后，点击下一步，重新输入新密码并确认，即完成操作。</string>
+    <string name="coohua_faq_title_11">Q : 有更多问题？</string>
+    <string name="coohua_faq_11">"A : 请发送邮件至help@coohua.com,我们非常期待您的反馈"</string>
+    
+    <!-- setting_Dialog_share -->
+    <string name="share_friend">邀请好友</string>
+    <string name="wechatmoments">微信朋友圈</string>
+    <string name="wechat">微信好友</string>
+    <string name="qq">QQ</string>
+    <string name="qzone">QQ空间</string>
+    <string name="tencentweibo">腾讯微博</string>
+    <string name="sinaweibo">新浪微博</string>
+    <string name="sms">短信</string>
+    <string name="qrcode">二维码</string>
+     
+    <string name="setting_smart_save_flow">智能省流量</string>
+    <string name="setting_smart_save_flow_summary">"2G/3G时只获取少量锁屏图片，进入
+WiFi环境时再获取其他的锁屏图片"</string>
+	<string name="setting_when_left_slide_open_landing_url_not_load_picture">左划打开App下载页时不载入图片</string>
+	<string name="setting_auto_delete_app_when_installed">安装完成后自动删除下载的安装包</string>
+	<string name="setting_open_notification">启用通知</string>
+	<string name="setting_open_lock_screen">开启锁屏</string>
+	<string name="setting_exit_app">退出登陆</string>
+
 
 </resources>

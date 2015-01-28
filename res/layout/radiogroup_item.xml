@@ -2,11 +2,11 @@
 <RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="0dip"
     android:layout_height="fill_parent"
-    android:background="#F2F2F2"
+    android:padding="0sp"
     android:button="@null"
     android:checked="true"
     android:gravity="center"
     android:text=""
     android:textColor="@drawable/radio_item_attr"
-    android:textSize="14dp" />
+    android:textSize="0sp" />
 
